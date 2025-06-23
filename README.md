@@ -1,41 +1,45 @@
-# 📘 Course Management Frontend
+# 🎓 Course Management Frontend
 
-A modern React + TypeScript based frontend for the **Course Management System** — designed to manage Courses and Course Instances. Built with Vite, styled cleanly, and integrated seamlessly with a Spring Boot + PostgreSQL backend.
-
----
-
-## 🌐 Live Stack
-
-- **Frontend**: React + TypeScript + Vite
-- **Backend**: Spring Boot
-- **Database**: PostgreSQL
-- **Containerization**: Docker + Docker Compose
-- **UI Design**: Custom (responsive + clean)
+A modern and responsive frontend for the **Course Management System**, built using **React + TypeScript + Vite**. This frontend connects to a Spring Boot backend and allows users to manage courses and course instances seamlessly.
 
 ---
 
-## 🖥️ Features
+## 🌐 Tech Stack
 
-- View, search, and manage courses
-- Create and list course instances
-- Popup-based course creation
-- Dynamic loading indicators
-- Integrated with API: `http://localhost:8080/api`
+- **Framework**: React
+- **Language**: TypeScript
+- **Bundler**: Vite
+- **Styling**: Custom CSS (can be extended with Tailwind or MUI)
+- **API Layer**: Axios-based service modules
+- **Deployment Ready**: Docker + Nginx configured
 
 ---
 
 ## 📂 Folder Structure
 
+```
 src/
-├── assets/ # Static assets (images, icons, etc.)
-├── components/ # Reusable UI components
-├── pages/ # Page-level components
-├── service/ # API service layers
-├── types/ # TypeScript types/interfaces
-├── utils/ # Utility files
-├── App.tsx # Main app entry
-└── index.tsx # ReactDOM render
-
+├── assets/               # Static assets (images, icons, etc.)
+├── components/           # Reusable UI components
+│   ├── AddCourse.tsx
+│   ├── CourseDetails.tsx
+│   ├── CourseInstancesList.tsx
+│   ├── CourseList.tsx
+│   ├── CoursePage.tsx
+│   ├── CreateCourseInstance.tsx
+│   ├── Header.tsx
+│   └── Instance.tsx
+├── pages/                # Route-level components
+├── service/              # API service logic
+│   ├── CourseService.tsx
+│   └── CourseInstanceService.tsx
+├── types/                # TypeScript types/interfaces
+│   ├── Course.tsx
+│   └── CourseInstance.tsx
+├── utils/                # Utility helpers
+├── App.tsx               # Main App component
+└── index.tsx             # ReactDOM entry point
+```
 
 ---
 
@@ -51,22 +55,67 @@ cd course-management-system
 
 git clone https://github.com/devanshmayatra/course-management.backend
 git clone https://github.com/devanshmayatra/course-management.frontend
+```
 
+### 2. Run Containers
+
+```bash
 cd course-management.backend
 
 docker-compose pull
-docker-compose up
+docker-compose up -d
+```
 
 This will start:
 
-PostgreSQL database
-Spring Boot backend on http://localhost:8080
-React frontend on http://localhost:3000
+- PostgreSQL database  
+- Spring Boot backend on `http://localhost:8080`  
+- React frontend on `http://localhost:3000`
 
-Environment Variable (Frontend)
-Create a .env in the frontend folder if needed:
+---
+
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the `course-management.frontend` folder:
+
+```env
 VITE_BASE_URL=http://localhost:8080
+```
 
+This points your frontend to the local Spring Boot backend API.
+
+---
+
+## 🧩 Features
+
+- 📚 View, search, and manage all courses
+- 🎯 Add and view course prerequisites
+- 🧠 Manage course instances (semester + year + course)
+- 🔄 Loading indicators and UI feedback
+- 📡 Connected to live API: `http://localhost:8080/api`
+
+---
+
+## 🌐 CORS Note (Backend Setup)
+
+Ensure the Spring Boot backend allows CORS from the frontend by updating `WebConfig.java`:
+
+```java
+registry.addMapping("/**")
+        .allowedOriginPatterns("http://localhost:3000")
+        .allowedMethods("*")
+        .allowedHeaders("*")
+        .allowCredentials(true);
+```
+
+---
+
+## 📮 API Overview
+
+See the [Course Management Backend](https://github.com/devanshmayatra/course-management.backend) for full documentation of available routes and sample requests.
+
+---
 
 ## 👤 Author
 
@@ -76,6 +125,6 @@ VITE_BASE_URL=http://localhost:8080
 - LinkedIn: [Devansh Mayatra](https://www.linkedin.com/in/devanshmayatra)
 - Email: [devanshmayatra@gmail.com](mailto:devanshmayatra@gmail.com)
 
-If you like this project, feel free to ⭐ the repo and share your thoughts!
+---
 
-
+> ⭐ If this project helped you, please consider starring the repo!
