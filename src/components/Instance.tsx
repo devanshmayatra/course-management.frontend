@@ -4,7 +4,7 @@ import type { CourseInstance } from "../types/CourseInstance";
 import courseInstanceService from "../service/CourseInstanceService";
 import courseService from "../service/CourseService";
 import type { Course } from "../types/Course";
-import CourseInstanceList from "./COurseInstanceList";
+import CourseInstancesList from "./CourseInstancesList";
 
 const Instance = () => {
   const [showCreateInstancePopup, setShowCreateInstancePopup] = useState(false);
@@ -52,7 +52,7 @@ const Instance = () => {
             <h2 className="text-xl font-semibold text-slate-800">Your Courses</h2>
           </div>
           <div className="p-6 w-full">
-            <CourseInstanceList instances={allCoursesInstances} isLoading={isLoading} onSave={getAllCourses}/>
+            <CourseInstancesList instances={allCoursesInstances} isLoading={isLoading} onSave={getAllCourses}/>
           </div>
         </div>
       </div>

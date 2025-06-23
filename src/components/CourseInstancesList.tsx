@@ -9,7 +9,7 @@ interface CourseInstanceListProps {
   onSave: () => Promise<void>;
 }
 
-const CourseInstanceList = ({ instances, isLoading, onSave }: CourseInstanceListProps) => {
+const CourseInstancesList = ({ instances, isLoading, onSave }: CourseInstanceListProps) => {
   const [search, setSearch] = useState("");
   const [filteredInstances, setFilteredInstances] = useState<CourseInstance[]>(instances);
   const [selectedInstance, setSelectedInstance] = useState<CourseInstance | null>(null);
@@ -169,4 +169,4 @@ const CourseInstanceList = ({ instances, isLoading, onSave }: CourseInstanceList
   );
 };
 
-export default CourseInstanceList;
+export default CourseInstancesList;

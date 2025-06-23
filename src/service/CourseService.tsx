@@ -1,4 +1,3 @@
-import type { Course } from "../types/Course";
 import { api } from "../utils/util"
 
 class CourseService {

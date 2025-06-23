@@ -4,7 +4,7 @@ import CourseList from "./CourseList"
 import courseService from "../service/CourseService";
 import type { Course } from "../types/Course";
 
-const Course = () => {
+const CoursePage = () => {
   const [showAddPopup, setShowAddPopup] = useState(false);
   const [allCourses, setAllCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,4 +64,4 @@ const Course = () => {
   )
 }
 
-export default Course
+export default CoursePage
