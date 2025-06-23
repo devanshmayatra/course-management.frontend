@@ -36,12 +36,16 @@ class CourseService {
     }
   }
 
-  addCourse = async (payload : Course)=> {
+  addCourse = async (payload: {
+    title: string,
+    description: string,
+    prerequisites: number[],
+  }) => {
     try {
-      const response = await api.post(`/courses/add`,payload);
+      const response = await api.post(`/courses/add`, payload);
       return response.data;
     } catch (error) {
-      if(error instanceof Error){
+      if (error instanceof Error) {
         console.log(error)
       }
     }

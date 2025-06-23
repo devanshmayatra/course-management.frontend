@@ -22,7 +22,7 @@ const AddCourse: React.FC<AddCourseProps> = ({ visible, onClose, onSuccess,refre
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const payload: Course = {
+    const payload = {
       title,
       description,
       prerequisites: selectedPrerequisites.map((id) => Number(id)),
