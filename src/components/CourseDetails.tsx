@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Course } from '../types/Course';
 
 const CourseDetails = ({ course, onClose }: { course: Course | null, onClose: () => void }) => {
